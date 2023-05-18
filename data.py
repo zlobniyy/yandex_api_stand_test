@@ -1,5 +1,6 @@
 headers = {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
+    "Authorization": "Bearer a9befd2c-ced4-4069-90ee-0b7da7d649d7"
 }
 
 user_body = {
@@ -10,4 +11,8 @@ user_body = {
 
 product_ids = {
     "ids": [1, 2, 3]
+}
+
+kit_body = {
+    "name": "1st KIT"
 }

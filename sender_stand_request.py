@@ -17,7 +17,8 @@ def post_new_user(user_body):
 def post_products_kits():
     return requests.post(configuration.URL_SERVICE+configuration.PRODUCTS_KITS_PATH,json=data.product_ids,headers=data.headers)
 
-
+def post_new_kit(kit_body):
+    return requests.post(configuration.URL_SERVICE+configuration.KITS_PATH,json=kit_body,headers=data.headers)
 # response = post_products_kits()
 #
 # print(response.status_code)
