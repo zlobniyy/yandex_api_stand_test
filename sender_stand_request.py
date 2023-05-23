@@ -2,6 +2,23 @@ import configuration
 import data
 import requests
 import create_kit_tests
+import string
+import random
+
+def get_random_string(length):
+    letter_set = string.ascii_letters
+    rand_string = ''.join(random.choice(letter_set) for i in range(length))
+    return rand_string
+
+def get_user_body(first_name):
+    current_body = data.user_body.copy()
+    current_body["firstName"] = first_name
+    return current_body
+
+def get_user_token(user_body):
+    user_response = post_new_user(user_body)
+    return user_response.json()["authToken"]
+
 
 def post_new_user(user_body):
     return requests.post(configuration.URL_SERVICE+configuration.CREATE_USER_PATH, json=user_body)

@@ -1,34 +1,11 @@
 import sender_stand_request
 import data
-import string
-import random
 
-def get_random_string(length):
-    letter_set = string.ascii_letters
-    rand_string = ''.join(random.choice(letter_set) for i in range(length))
-    print(rand_string)
-    return rand_string
-
-def get_user_body(first_name):
-    current_body = data.user_body.copy()
-    current_body["firstName"] = first_name
-    print(current_body)
-    return current_body
-
-def get_user_token(user_body):
-    user_response = sender_stand_request.post_new_user(user_body)
-    # str_user = user_body["firstName"] + "," + user_body["phone"] + "," \
-    #            + user_body["address"] + ",,," + user_response.json()["authToken"]
-    print(user_response.json()["authToken"])
-    return user_response.json()["authToken"]
-
-name_string = get_random_string(10)
-body = get_user_body(name_string)
-authToken = get_user_token(body)
+name_string = sender_stand_request.get_random_string(10)
+body = sender_stand_request.get_user_body(name_string)
+authToken = sender_stand_request.get_user_token(body)
 headers = data.headers.copy()
 headers["Authorization"] = "Bearer " + authToken
-
-
 
 #1
 def test_one_symbol_kit_name():
