@@ -69,7 +69,7 @@ def positive_create_kit_assert(name):
     kit_body = get_kit_body(name)
     kit_response = sender_stand_request.post_new_kit(kit_body)
 
-    assert kit_response.status_code == 201
+    assert kit_response.status_code == 201, "authToken is"+authToken
     assert kit_response.json()["name"] == kit_body["name"]
 
 def negative_create_kit_assert(name=None):
@@ -78,4 +78,4 @@ def negative_create_kit_assert(name=None):
         kit_body.pop("name")
     kit_response = sender_stand_request.post_new_kit(kit_body)
 
-    assert kit_response.status_code == 400
+    assert kit_response.status_code == 400, "authToken is"+authToken

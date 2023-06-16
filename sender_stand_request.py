@@ -17,6 +17,7 @@ def get_user_body(first_name):
 
 def get_user_token(user_body):
     user_response = post_new_user(user_body)
+    print("authToken = " + user_response.json()["authToken"])
     return user_response.json()["authToken"]
 
 
